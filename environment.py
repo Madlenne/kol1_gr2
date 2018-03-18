@@ -62,13 +62,3 @@ class Environment:
 				break
 			self.plane.set_answer()
 			
-			
-
-		
-	
-
-
-
-
-
-

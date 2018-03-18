@@ -87,8 +87,3 @@ class Plane:
 		self.left_kilometer += added_km
 		self.angle = random.gauss(0, 8)
 		self.print_flight()
-
-
-
-
-
