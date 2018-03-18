@@ -1,6 +1,5 @@
 import random
 from environment import Environment
-from planeiter import PlaneIter
 
 cities = {
 	'Barcelona' : 2011, 'Paris': 1441, 'Honolulu': 11860, 
