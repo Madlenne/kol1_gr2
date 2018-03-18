@@ -3,16 +3,13 @@ import time
 from plane import Plane
 class Environment:
 
-	def __init__(
-			self, city,
-			kilometers):
+	def __init__(self, city, kilometers):
 		self.density = 0
 		self.plane = Plane()
 		self.city = city
 		self.kilometers = kilometers
 	
-	def planes_density(
-			self):
+	def planes_density(self):
 		self.density = random.randint(0,30)
 		radius = random.uniform(30.0, 130.0)
 		if self.density > 27:
@@ -25,30 +22,25 @@ class Environment:
 			if answer == 1:
 				plane.change_route()
 
-	def turbulations(
-			self):
+	def turbulations(self):
 		turbulations_angle = random.gauss(0, 15)
 		self.plane.add_angle(turbulations_angle)
 		if abs(self.plane.angle) > abs(self.plane.max):
 			self.crash_danger() 
 		return turbulations_angle
 
-	def crash_danger(
-			self):
+	def crash_danger(self):
 		print("Alert! High crash probability detected!")
 		print("Immediate change of the route")
 		self.plane.change_route()
 
 	
-	def airport_problem(
-			self, 
-			city):
+	def airport_problem(self, city):
 		if not random.randint(0,10)%10:
 			print("Alert! Landing in {} is impossible. The plane will be rerouted to the nearest airport".format(city))
 			self.plane.change_route()
 
-	def run(
-			self):
+	def run(self):
 		self.plane.set_angle()
 		self.plane.set_kilometers(self.kilometers)
 		for x in Plane():
