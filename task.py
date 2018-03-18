@@ -1,6 +1,5 @@
 import random
 from environment import Environment
-from plane import Plane
 from planeiter import PlaneIter
 
 cities = {
@@ -19,7 +18,6 @@ if __name__ == "__main__":
 	print ("Welcome aboard! You are flying to {}. The total distance is {} kilometers. Have a nice flight!".format(random_city, random_distance))
 	env = Environment(
 	random_city, random_distance)
-	plane = Plane()
 	print("Type y if you want to stop simulation\n")
 	env.run()
 
