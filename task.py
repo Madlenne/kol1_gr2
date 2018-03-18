@@ -1,37 +1,26 @@
-
-
 import random
-import sys
+from environment import Environment
+from plane import Plane
+from planeiter import PlaneIter
 
-class FlightSimulator:
+cities = {
+	'Barcelona' : 2011, 'Paris': 1441, 'Honolulu': 11860, 
+	'Ottawa': 6489, 'PyeongChang': 7953, 'Sydney':15716, 
+	'Egypt': 2955, 'Oslo': 1460, 'London': 1508
+}
 
-	def __init__(self, angle = 0.0):
-		self.angle = angle
+random_city = random.choice(list(cities.keys()));
+random_distance = cities[random_city]
 
-
-	def print_orientation(self):
-		print "Current orientation is: {}".format(self.angle)
-
-	def proper_angle(self):
-		return 45.0
-
-
-i=0
-
-while True:
-	
-	if input ("Do you want to end the loop? Type Y for yes or N for no: ") == 'Y': 
-		break
-		
-	else:	
-		angle1 = random.randint(0, 360)
-		plane = FlightSimulator(angle1)	
-		plane.print_orientation()
-
-		if plane.angle != plane.proper_angle:
-			plane.angle = plane.proper_angle
-
-		plane.print_orientation()	
+if __name__ == "__main__":
 
 
-		i+=1
+
+	print ("Welcome aboard! You are flying to {}. The total distance is {} kilometers. Have a nice flight!".format(random_city, random_distance))
+	env = Environment(
+	random_city, random_distance)
+	plane = Plane()
+	print("Type y if you want to stop simulation\n")
+	env.run()
+
+
